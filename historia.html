@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nossa História — Couty</title>
-  <meta name="description" content="Conheça a história da Couty — botas brasileiras artesanais de couro genuíno.">
+  <title>Nossa História — Couty | Botas Brasileiras</title>
+  <meta name="description" content="Conheça a história da Couty — botas brasileiras artesanais de couro genuíno. Tradição desde 2004.">
+  <meta name="keywords" content="história couty, botas artesanais, botas brasileiras, couro genuíno">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://couty.github.io/historia.html">
+  <meta property="og:title" content="Nossa História — Couty">
+  <meta property="og:description" content="Tradição em botas brasileiras desde 2004.">
+  <meta property="og:url" content="https://couty.github.io/historia.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
 :root {
@@ -111,6 +118,12 @@ footer a:hover { color: var(--cream); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .location-inner { grid-template-columns: 1fr; text-align: center; }
+  .location-address { text-align: left; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
@@ -121,6 +134,14 @@ footer a:hover { color: var(--cream); }
   .timeline-dot { left: 20px; }
   .timeline-content, .timeline-item:nth-child(odd) .timeline-content { text-align: left; padding-left: 50px; padding-right: 0; }
   .values-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 2rem; }
+  .stat-num { font-size: 2rem; }
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+}
   .location-inner { grid-template-columns: 1fr; }
   .location-map { order: -1; }
 }
