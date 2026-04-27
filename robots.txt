@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://couty.github.io/sitemap.xml
