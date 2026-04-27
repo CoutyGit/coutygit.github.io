@@ -3,9 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nossa História — Couty</title>
-  <meta name="description" content="Conheça a história da Couty — botas brasileiras artesanais de couro genuíno.">
+  <title>Fale Conosco — Couty | Botas Brasileiras</title>
+  <meta name="description" content="Entre em contato com a Couty — botas brasileiras de couro genuíno. WhatsApp, email e formulário.">
+  <meta name="keywords" content="contato couty, fale conosco, botas brasileiras, whatsapp">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://couty.github.io/contato.html">
+  <meta property="og:title" content="Fale Conosco — Couty">
+  <meta property="og:description" content="Entre em contato com a gente.">
+  <meta property="og:url" content="https://couty.github.io/contato.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
 :root {
@@ -111,18 +118,20 @@ footer a:hover { color: var(--cream); }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
   .nav-links { display: none; }
   .hero-content { padding: 0 1.5rem; }
   .container { padding: 0 1.5rem; }
-  .timeline::before { left: 20px; }
-  .timeline-item, .timeline-item:nth-child(odd) { flex-direction: column; }
-  .timeline-dot { left: 20px; }
-  .timeline-content, .timeline-item:nth-child(odd) .timeline-content { text-align: left; padding-left: 50px; padding-right: 0; }
-  .values-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .location-inner { grid-template-columns: 1fr; }
-  .location-map { order: -1; }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 { font-size: 2rem; }
+  .contact-info { padding: 1.5rem; }
 }
   </style>
 </head>
