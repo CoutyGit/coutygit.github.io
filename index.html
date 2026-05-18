@@ -101,6 +101,14 @@ nav.scrolled { padding: 0.8rem 3rem; box-shadow: 0 2px 20px var(--shadow); }
 .card-price { display: flex; align-items: baseline; gap: 0.7rem; }
 .price-now { font-size: 1.3rem; font-weight: 700; color: var(--near-black); }
 .price-old { font-size: 0.85rem; color: var(--brown); opacity: 0.5; text-decoration: line-through; }
+.card-toggle { display: flex; align-items: center; justify-content: space-between; cursor: pointer; padding: 0.6rem 0 0; border-top: 1px solid rgba(139,99,71,0.12); margin-top: 0.6rem; user-select: none; }
+.card-toggle-label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--brown); }
+.card-toggle-arrow { width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; color: var(--brown); transition: transform 0.3s ease; flex-shrink: 0; }
+.card-toggle-arrow svg { width: 14px; height: 14px; }
+.card-desc { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease; opacity: 0; padding-top: 0; }
+.card-desc.open { max-height: 200px; opacity: 1; padding-top: 0.7rem; }
+.card-desc p { font-size: 0.78rem; color: var(--near-black); opacity: 0.72; line-height: 1.6; margin: 0; }
+.card-toggle.active .card-toggle-arrow { transform: rotate(180deg); }
 
 /* BANNER / SOBRE */
 .banner-section { background: var(--dark-brown); padding: 5rem 0; }
@@ -303,6 +311,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
           <div class="card-category">Infantil</div>
           <div class="card-name">Texana Infantil Meninos em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Texana infantil artesanal em couro legítimo, ideal para meninos. Solado resistente, bico arredondado e costura reforçada para aguentar o dia a dia com estilo e conforto.</p>
+          </div>
         </div>
       </div>
 
@@ -313,6 +328,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Infantil</div>
           <div class="card-name">Texana Infantil Meninas em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Texana infantil feminina em couro legítimo com acabamento delicado. Design especial para meninas, unindo charme e durabilidade em cada detalhe da fabricação artesanal.</p>
+          </div>
         </div>
       </div>
 
@@ -323,6 +345,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Casual</div>
           <div class="card-name">Texana Masculina em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Texana masculina clássica em couro legítimo com solado de borracha de alta resistência. Perfeita para o uso casual, combina estilo country com conforto para o dia a dia.</p>
+          </div>
         </div>
       </div>
 
@@ -335,6 +364,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Agro</div>
           <div class="card-name">Botas Agroboot em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Bota agro desenvolvida para quem trabalha no campo. Couro legítimo de alta espessura, solado tratorado antiderrapante e cano alto para proteção nas atividades rurais mais exigentes.</p>
+          </div>
         </div>
       </div>
    <div class="product-card reveal">
@@ -344,6 +380,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Trabalho</div>
           <div class="card-name">Botas para Trabalho em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Bota robusta para ambientes de trabalho exigentes. Couro legítimo reforçado, palmilha ergonômica e solado com amortecimento para proporcionar conforto em longas jornadas.</p>
+          </div>
         </div>
       </div>
          <div class="product-card reveal">
@@ -353,6 +396,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Sociais</div>
           <div class="card-name">Botas Sociais em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Bota social em couro fino com acabamento impecável. Design elegante e sofisticado para ocasiões especiais, com palmilha macia e solado de couro que traz leveza e classe ao visual.</p>
+          </div>
         </div>
       </div>
                <div class="product-card reveal">
@@ -362,6 +412,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Casual</div>
           <div class="card-name">Botas Latex Natural em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Bota casual com solado de látex natural de alta durabilidade. O couro legítimo confere estilo e resistência, enquanto o solado flexível proporciona conforto incomparável no uso diário.</p>
+          </div>
         </div>
       </div>
                     <div class="product-card reveal">
@@ -371,6 +428,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Trabalho</div>
           <div class="card-name">Botas Pneu para Trabalho em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Bota com solado de pneu vulcanizado para máxima resistência. Indicada para trabalhos pesados e terrenos irregulares, com couro espesso e costura dupla que garante durabilidade excepcional.</p>
+          </div>
         </div>
       </div>
                           <div class="product-card reveal">
@@ -380,6 +444,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Casual</div>
           <div class="card-name">Cuturno Adventure em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Cuturno adventure em couro legítimo com design arrojado para quem vive a vida com intensidade. Solado antiderrapante, cano médio e construção robusta para trilhas urbanas ou rurais.</p>
+          </div>
         </div>
       </div>
                             <div class="product-card reveal">
@@ -389,6 +460,13 @@ Fabricamos calçados desde 2004.
         <div class="card-body">
            <div class="card-category">Trabalho</div>
           <div class="card-name">Cuturno Segurança em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Cuturno de segurança com biqueira de proteção em couro legítimo. Atende às normas de segurança do trabalho, com solado isolante e cabedal resistente para ambientes industriais e de construção.</p>
+          </div>
         </div>
       </div>
 
@@ -539,6 +617,12 @@ function acceptTerms() {
   localStorage.setItem('couty_terms_v1', '1');
 }
 
+function toggleDesc(toggle) {
+  const desc = toggle.nextElementSibling;
+  const isOpen = desc.classList.contains('open');
+  desc.classList.toggle('open', !isOpen);
+  toggle.classList.toggle('active', !isOpen);
+}
 
 </script>
 <script src="orcamento.js"></script>
