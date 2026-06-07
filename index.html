@@ -221,6 +221,118 @@ footer a:hover { color: var(--cream); }
 .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
 
+/* ============================================================
+   FILTRO DE PRODUTOS
+   ============================================================ */
+#filtro-section {
+  margin-bottom: 2.5rem;
+}
+.filtro-wrap { display: flex; flex-direction: column; gap: 1rem; }
+.filtro-top {
+  display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+}
+.filtro-search-wrap {
+  position: relative; flex: 1; min-width: 180px; max-width: 320px;
+}
+.filtro-search-icon {
+  position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%);
+  color: var(--brown); opacity: 0.45; pointer-events: none;
+  display: flex; align-items: center;
+}
+.filtro-search-icon svg { width: 14px; height: 14px; }
+.filtro-search {
+  width: 100%;
+  padding: 0.6rem 2.2rem 0.6rem 2.2rem;
+  background: var(--white);
+  border: 1px solid rgba(139,99,71,0.22);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.05em;
+  color: var(--near-black); outline: none; border-radius: 0;
+  -webkit-appearance: none; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.filtro-search::placeholder { color: var(--brown); opacity: 0.4; }
+.filtro-search:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,151,58,0.1); }
+.filtro-search-clear {
+  position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer;
+  color: var(--brown); opacity: 0.4; font-size: 0.9rem;
+  padding: 2px; line-height: 1; display: none; align-items: center;
+  justify-content: center; transition: opacity 0.2s;
+}
+.filtro-search-clear:hover { opacity: 0.9; }
+.filtro-search-clear.vis { display: flex; }
+.filtro-sort-wrap { display: flex; align-items: center; gap: 0.45rem; }
+.filtro-sort-label {
+  font-size: 0.57rem; font-weight: 700; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--brown); opacity: 0.42; white-space: nowrap;
+}
+.filtro-sort {
+  background: var(--white); border: 1px solid rgba(139,99,71,0.22);
+  padding: 0.42rem 1.5rem 0.42rem 0.65rem;
+  font-family: 'Syne', sans-serif; font-size: 0.65rem; font-weight: 600;
+  color: var(--near-black); outline: none; border-radius: 0; cursor: pointer;
+  -webkit-appearance: none; appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238B6347' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 0.5rem center;
+  transition: border-color 0.2s;
+}
+.filtro-sort:focus { border-color: var(--gold); }
+.filtro-counter {
+  margin-left: auto; font-family: 'Syne', sans-serif;
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--brown); opacity: 0.6; white-space: nowrap;
+}
+.filtro-counter strong { color: var(--gold); opacity: 1; font-weight: 800; }
+.filtro-cats { display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap; }
+.filtro-cats-label {
+  font-size: 0.56rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--brown); opacity: 0.42; padding-right: 0.2rem;
+}
+.filtro-pill {
+  padding: 0.35rem 0.85rem;
+  background: transparent; border: 1px solid rgba(139,99,71,0.22);
+  font-family: 'Syne', sans-serif; font-size: 0.62rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown);
+  cursor: pointer; border-radius: 0; transition: all 0.18s ease; white-space: nowrap;
+}
+.filtro-pill:hover { border-color: var(--gold); color: var(--dark-brown); background: rgba(201,151,58,0.07); }
+.filtro-pill.ativo { background: var(--near-black); border-color: var(--near-black); color: var(--gold); }
+.filtro-pill[data-cat="todos"].ativo { background: var(--gold); border-color: var(--gold); color: var(--near-black); }
+.filtro-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(139,99,71,0.2) 0%, transparent 100%);
+}
+.filtro-vazio {
+  display: none; grid-column: 1 / -1; text-align: center;
+  padding: 3.5rem 1rem;
+}
+.filtro-vazio.vis { display: block; }
+.filtro-vazio-titulo {
+  font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 300;
+  color: var(--dark-brown); margin-bottom: 0.4rem;
+}
+.filtro-vazio-txt { font-size: 0.78rem; color: var(--brown); opacity: 0.6; line-height: 1.6; margin-bottom: 1rem; }
+.filtro-vazio-reset {
+  background: none; border: 1px solid rgba(139,99,71,0.3);
+  padding: 0.5rem 1.3rem; font-family: 'Syne', sans-serif;
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--brown); cursor: pointer; transition: all 0.18s;
+}
+.filtro-vazio-reset:hover { background: var(--gold); border-color: var(--gold); color: var(--near-black); }
+.product-card.f-oculto { display: none !important; }
+@keyframes f-entrada {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.product-card.f-entrada { animation: f-entrada 0.28s ease both; }
+@media (max-width: 768px) {
+  .filtro-search-wrap { max-width: 100%; flex: 1 1 100%; }
+  .filtro-sort-label { display: none; }
+  .filtro-cats-label { display: none; }
+  .filtro-counter { margin-left: 0; }
+  .filtro-pill { font-size: 0.58rem; padding: 0.3rem 0.65rem; }
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   nav { padding: 1rem 1.5rem; }
@@ -303,7 +415,43 @@ Fabricamos calçados desde 2004.
       <span class="section-tag">✦ Coleção Completa</span>
       <h2 class="section-title">Nossas <em>Botas</em></h2>
     </div>
-    <div class="product-grid">
+
+    <!-- ====== FILTROS ====== -->
+    <div id="filtro-section">
+      <div class="filtro-wrap">
+        <div class="filtro-top">
+          <div class="filtro-search-wrap">
+            <span class="filtro-search-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+            </span>
+            <input id="filtro-search" class="filtro-search" type="search" placeholder="Buscar modelo..." autocomplete="off" spellcheck="false" aria-label="Buscar produtos">
+            <button id="filtro-search-clear" class="filtro-search-clear" aria-label="Limpar busca">&#x2715;</button>
+          </div>
+          <div class="filtro-sort-wrap">
+            <span class="filtro-sort-label">Ordenar</span>
+            <select id="filtro-sort" class="filtro-sort" aria-label="Ordenar produtos">
+              <option value="padrao">Padrao</option>
+              <option value="az">A a Z</option>
+              <option value="za">Z a A</option>
+            </select>
+          </div>
+          <span class="filtro-counter" id="filtro-counter"><strong>11</strong> produtos</span>
+        </div>
+        <div class="filtro-cats" id="filtro-cats" role="group" aria-label="Filtrar por categoria">
+          <span class="filtro-cats-label">Categoria</span>
+          <button class="filtro-pill ativo" data-cat="todos">Todos</button>
+          <button class="filtro-pill" data-cat="Infantil">Infantil</button>
+          <button class="filtro-pill" data-cat="Casual">Casual</button>
+          <button class="filtro-pill" data-cat="Agro">Agro</button>
+          <button class="filtro-pill" data-cat="Trabalho">Trabalho</button>
+          <button class="filtro-pill" data-cat="Sociais">Sociais</button>
+        </div>
+        <div class="filtro-divider"></div>
+      </div>
+    </div>
+    <!-- ====== /FILTROS ====== -->
+
+    <div class="product-grid" id="product-grid">
 
       <div class="product-card reveal">
         <div class="card-img">
@@ -644,6 +792,166 @@ function toggleDesc(toggle) {
 }
 
 </script>
+
+<!-- FILTRO DE PRODUTOS -->
+<script>
+(function() {
+  var grid, cards, catAtiva, busca, ordem, timer;
+
+  function init() {
+    grid = document.getElementById('product-grid');
+    if (!grid) return;
+
+    // Captura todos os cards com metadados
+    var els = grid.querySelectorAll('.product-card');
+    cards = Array.from(els).map(function(el, idx) {
+      var catEl  = el.querySelector('.card-category');
+      var nameEl = el.querySelector('.card-name');
+      var cat    = catEl  ? catEl.textContent.trim()  : '';
+      var name   = nameEl ? nameEl.textContent.trim() : '';
+      return { el: el, cat: cat, name: name.toLowerCase(), idx: idx };
+    });
+
+    catAtiva = 'todos';
+    busca    = '';
+    ordem    = 'padrao';
+
+    // Injeta estado vazio na grid
+    var vazioEl = document.createElement('div');
+    vazioEl.className = 'filtro-vazio';
+    vazioEl.id = 'filtro-vazio';
+    vazioEl.innerHTML =
+      '<div class="filtro-vazio-titulo">Nenhum modelo encontrado</div>' +
+      '<p class="filtro-vazio-txt">Tente outro termo ou remova os filtros.</p>' +
+      '<button class="filtro-vazio-reset" id="filtro-vazio-reset">Limpar filtros</button>';
+    grid.appendChild(vazioEl);
+
+    // Eventos
+    var searchEl = document.getElementById('filtro-search');
+    var clearEl  = document.getElementById('filtro-search-clear');
+    var sortEl   = document.getElementById('filtro-sort');
+    var vazioReset = document.getElementById('filtro-vazio-reset');
+
+    if (searchEl) {
+      searchEl.addEventListener('input', function() {
+        busca = searchEl.value.trim().toLowerCase();
+        clearEl && clearEl.classList.toggle('vis', busca.length > 0);
+        clearTimeout(timer);
+        timer = setTimeout(aplicar, 200);
+      });
+    }
+
+    if (clearEl) {
+      clearEl.addEventListener('click', function() {
+        if (searchEl) searchEl.value = '';
+        busca = '';
+        clearEl.classList.remove('vis');
+        aplicar();
+        if (searchEl) searchEl.focus();
+      });
+    }
+
+    if (sortEl) {
+      sortEl.addEventListener('change', function() {
+        ordem = sortEl.value;
+        aplicar();
+      });
+    }
+
+    if (vazioReset) {
+      vazioReset.addEventListener('click', resetar);
+    }
+
+    // Pills
+    var pills = document.querySelectorAll('.filtro-pill');
+    pills.forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        catAtiva = pill.getAttribute('data-cat');
+        pills.forEach(function(p) {
+          p.classList.toggle('ativo', p === pill);
+        });
+        aplicar();
+      });
+    });
+
+    aplicar();
+  }
+
+  function aplicar() {
+    // Filtra
+    var visiveis = cards.filter(function(c) {
+      var okCat  = catAtiva === 'todos' || c.cat === catAtiva;
+      var okNome = !busca || c.name.indexOf(busca) !== -1;
+      return okCat && okNome;
+    });
+
+    // Ordena
+    var sorted = visiveis.slice();
+    if (ordem === 'az') {
+      sorted.sort(function(a, b) { return a.name.localeCompare(b.name, 'pt-BR'); });
+    } else if (ordem === 'za') {
+      sorted.sort(function(a, b) { return b.name.localeCompare(a.name, 'pt-BR'); });
+    } else {
+      sorted.sort(function(a, b) { return a.idx - b.idx; });
+    }
+
+    // Oculta todos
+    cards.forEach(function(c) {
+      c.el.classList.add('f-oculto');
+      c.el.classList.remove('f-entrada');
+    });
+
+    // Exibe e reordena no DOM
+    sorted.forEach(function(c, i) {
+      c.el.classList.remove('f-oculto');
+      c.el.style.animationDelay = Math.min(i * 30, 240) + 'ms';
+      c.el.classList.add('f-entrada');
+      grid.appendChild(c.el);
+    });
+
+    // Contador
+    var ct = document.getElementById('filtro-counter');
+    if (ct) {
+      var n = sorted.length;
+      ct.innerHTML = '<strong>' + n + '</strong> produto' + (n !== 1 ? 's' : '');
+    }
+
+    // Vazio
+    var vazio = document.getElementById('filtro-vazio');
+    if (vazio) {
+      vazio.classList.toggle('vis', sorted.length === 0);
+      grid.appendChild(vazio);
+    }
+  }
+
+  function resetar() {
+    catAtiva = 'todos';
+    busca    = '';
+    ordem    = 'padrao';
+
+    var searchEl = document.getElementById('filtro-search');
+    if (searchEl) searchEl.value = '';
+    var clearEl = document.getElementById('filtro-search-clear');
+    if (clearEl) clearEl.classList.remove('vis');
+    var sortEl = document.getElementById('filtro-sort');
+    if (sortEl) sortEl.value = 'padrao';
+
+    document.querySelectorAll('.filtro-pill').forEach(function(p) {
+      p.classList.toggle('ativo', p.getAttribute('data-cat') === 'todos');
+    });
+
+    aplicar();
+  }
+
+  // Roda após DOM pronto
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+
 <script src="orcamento.js"></script>
 </body>
 </html>
