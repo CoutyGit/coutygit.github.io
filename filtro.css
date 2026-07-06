@@ -1,0 +1,466 @@
+/**
+ * SISTEMA DE FILTRO — COUTY
+ * Integrado ao design system existente (Cormorant Garamond + Syne, paleta dark-brown/gold/cream)
+ */
+
+/* ============================================
+   BARRA DE FILTROS
+   ============================================ */
+
+.filtro-section {
+  padding: 0 0 2.5rem;
+}
+
+.filtro-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Linha superior: busca + contador */
+.filtro-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Campo de busca */
+.filtro-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 340px;
+}
+
+.filtro-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--brown);
+  opacity: 0.5;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.filtro-search-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.filtro-search {
+  width: 100%;
+  padding: 0.65rem 0.9rem 0.65rem 2.4rem;
+  background: var(--white);
+  border: 1px solid rgba(139, 99, 71, 0.2);
+  border-radius: 0;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--near-black);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.filtro-search::placeholder {
+  color: var(--brown);
+  opacity: 0.45;
+}
+
+.filtro-search:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 151, 58, 0.1);
+}
+
+/* Limpar busca */
+.filtro-search-clear {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--brown);
+  opacity: 0.4;
+  padding: 2px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  line-height: 1;
+  font-size: 1rem;
+}
+
+.filtro-search-clear:hover {
+  opacity: 0.9;
+}
+
+.filtro-search-clear.visible {
+  display: flex;
+}
+
+/* Contador de resultados */
+.filtro-counter {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown);
+  opacity: 0.6;
+  white-space: nowrap;
+  margin-left: auto;
+  transition: opacity 0.3s;
+}
+
+.filtro-counter strong {
+  color: var(--gold);
+  opacity: 1;
+  font-weight: 800;
+}
+
+/* ============================================
+   LINHA DE CATEGORIAS (Pills / Chips)
+   ============================================ */
+
+.filtro-categorias {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filtro-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brown);
+  opacity: 0.5;
+  white-space: nowrap;
+  padding-right: 0.25rem;
+}
+
+.filtro-pill {
+  padding: 0.4rem 0.9rem;
+  background: transparent;
+  border: 1px solid rgba(139, 99, 71, 0.22);
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown);
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.filtro-pill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: -1;
+}
+
+.filtro-pill:hover {
+  border-color: var(--gold);
+  color: var(--near-black);
+}
+
+.filtro-pill:hover::after {
+  opacity: 0.12;
+}
+
+.filtro-pill.active {
+  background: var(--near-black);
+  border-color: var(--near-black);
+  color: var(--gold);
+  box-shadow: 0 2px 8px rgba(26, 17, 8, 0.2);
+}
+
+.filtro-pill.active:hover {
+  background: var(--dark-brown);
+  border-color: var(--dark-brown);
+}
+
+/* Pill "Todos" tem estilo diferente quando ativo */
+.filtro-pill[data-cat="todos"].active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--near-black);
+}
+
+/* Indicador de categoria com ponto colorido */
+.filtro-pill-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  margin-right: 5px;
+  opacity: 0.5;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.filtro-pill.active .filtro-pill-dot {
+  background: var(--gold);
+  opacity: 1;
+}
+
+.filtro-pill[data-cat="todos"] .filtro-pill-dot {
+  display: none;
+}
+
+/* Linha divisória abaixo dos filtros */
+.filtro-divider {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(139, 99, 71, 0.2) 0%, transparent 100%);
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   SORT / ORDENAÇÃO
+   ============================================ */
+
+.filtro-sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.filtro-sort-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brown);
+  opacity: 0.45;
+  white-space: nowrap;
+}
+
+.filtro-sort {
+  background: var(--white);
+  border: 1px solid rgba(139, 99, 71, 0.2);
+  padding: 0.4rem 0.7rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--near-black);
+  cursor: pointer;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+  appearance: none;
+  padding-right: 1.6rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238B6347' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.55rem center;
+}
+
+.filtro-sort:focus {
+  border-color: var(--gold);
+}
+
+/* ============================================
+   ESTADO VAZIO (sem resultados)
+   ============================================ */
+
+.filtro-empty {
+  display: none;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--brown);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  grid-column: 1 / -1;
+}
+
+.filtro-empty.visible {
+  display: block;
+  opacity: 1;
+}
+
+.filtro-empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+  display: block;
+}
+
+.filtro-empty-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 300;
+  color: var(--dark-brown);
+  margin-bottom: 0.5rem;
+}
+
+.filtro-empty-text {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.filtro-empty-reset {
+  background: none;
+  border: 1px solid rgba(139, 99, 71, 0.3);
+  padding: 0.6rem 1.4rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brown);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filtro-empty-reset:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--near-black);
+}
+
+/* ============================================
+   ANIMAÇÃO DOS CARDS AO FILTRAR
+   ============================================ */
+
+.product-card {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.product-card.filtro-hidden {
+  display: none;
+}
+
+.product-card.filtro-fade-in {
+  animation: filtroFadeIn 0.3s ease forwards;
+}
+
+@keyframes filtroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   TAG DE CATEGORIA ATIVA (badge no header)
+   ============================================ */
+
+.filtro-active-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(201, 151, 58, 0.12);
+  border: 1px solid rgba(201, 151, 58, 0.3);
+  padding: 0.2rem 0.6rem;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+.filtro-active-tag.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.filtro-active-tag button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  opacity: 0.6;
+  font-size: 0.75rem;
+  padding: 0;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.15s;
+  pointer-events: auto;
+}
+
+.filtro-active-tag button:hover {
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVO
+   ============================================ */
+
+@media (max-width: 768px) {
+  .filtro-top {
+    gap: 0.75rem;
+  }
+
+  .filtro-search-wrap {
+    max-width: 100%;
+    flex: 1 1 100%;
+    min-width: 0;
+    order: -1;
+  }
+
+  .filtro-counter {
+    margin-left: 0;
+    flex: 1;
+    text-align: right;
+  }
+
+  .filtro-sort-wrap {
+    margin-left: 0;
+  }
+
+  .filtro-categorias {
+    gap: 0.4rem;
+  }
+
+  .filtro-pill {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtro-label {
+    display: none;
+  }
+
+  .filtro-sort-label {
+    display: none;
+  }
+
+  .filtro-categorias {
+    gap: 0.35rem;
+  }
+}
