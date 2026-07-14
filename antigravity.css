@@ -1,0 +1,683 @@
+/* ============================================================
+   ANTIGRAVITY SKILLS — Efeitos Profissionais para Couty
+   Catalogo completo: glassmorphism, 3D, text effects, particles
+   ============================================================ */
+
+/* ──────────────────────────────────────────────
+   CSS CUSTOM PROPERTIES — Extensão do design system Couty
+   ────────────────────────────────────────────── */
+:root {
+  /* Cores antigravity */
+  --ag-gold: #C9973A;
+  --ag-gold-light: #f0d77d;
+  --ag-cream: #F5F0E8;
+  --ag-sand: #E8DDD0;
+  --ag-brown: #8B6347;
+  --ag-dark: #3D2B1F;
+  --ag-near-black: #1A1108;
+
+  /* Glassmorphism */
+  --ag-glass-bg: rgba(245, 240, 232, 0.15);
+  --ag-glass-border: rgba(245, 240, 232, 0.2);
+  --ag-glass-shadow: 0 8px 32px rgba(26, 17, 8, 0.12);
+  --ag-glass-blur: 12px;
+
+  /* Gradientes */
+  --ag-gradient-gold: linear-gradient(135deg, #C9973A 0%, #f0d77d 40%, #C9973A 100%);
+  --ag-gradient-dark: linear-gradient(135deg, #1A1108 0%, #3D2B1F 100%);
+  --ag-gradient-cream: linear-gradient(135deg, #F5F0E8 0%, #E8DDD0 100%);
+
+  /* Transições */
+  --ag-transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ag-transition-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ──────────────────────────────────────────────
+   1. TEXT EFFECTS
+   ────────────────────────────────────────────── */
+
+/* Text Gradient */
+.ag-text-gradient {
+  background: var(--ag-gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.ag-text-gradient-cream {
+  background: linear-gradient(135deg, #F5F0E8 0%, #C9973A 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Text Glitch */
+.ag-glitch {
+  position: relative;
+}
+.ag-glitch::before,
+.ag-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.ag-glitch::before {
+  color: #C9973A;
+  z-index: -1;
+  animation: ag-glitch-top 3s infinite linear alternate-reverse;
+}
+.ag-glitch::after {
+  color: #8B6347;
+  z-index: -2;
+  animation: ag-glitch-bottom 2.5s infinite linear alternate-reverse;
+}
+@keyframes ag-glitch-top {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+@keyframes ag-glitch-bottom {
+  0% { transform: translate(0); }
+  25% { transform: translate(2px, -2px); }
+  50% { transform: translate(-2px, 2px); }
+  75% { transform: translate(2px, 2px); }
+  100% { transform: translate(0); }
+}
+
+/* Typewriter Cursor */
+.ag-typewriter-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: #C9973A;
+  margin-left: 2px;
+  animation: ag-blink 0.8s step-end infinite;
+  vertical-align: text-bottom;
+}
+@keyframes ag-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Letter Spacing Animado */
+.ag-text-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: ag-textReveal 0.8s var(--ag-transition-smooth) forwards;
+}
+@keyframes ag-textReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ──────────────────────────────────────────────
+   2. GLASSMORPHISM
+   ────────────────────────────────────────────── */
+
+.ag-glass {
+  background: var(--ag-glass-bg);
+  backdrop-filter: blur(var(--ag-glass-blur));
+  -webkit-backdrop-filter: blur(var(--ag-glass-blur));
+  border: 1px solid var(--ag-glass-border);
+  box-shadow: var(--ag-glass-shadow);
+}
+
+.ag-glass-light {
+  background: rgba(245, 240, 232, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(245, 240, 232, 0.3);
+}
+
+.ag-glass-dark {
+  background: rgba(26, 17, 8, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 151, 58, 0.15);
+}
+
+.ag-glass-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  padding: 2rem;
+  transition: all 0.4s ease;
+}
+.ag-glass-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(201, 151, 58, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26, 17, 8, 0.2);
+}
+
+/* ──────────────────────────────────────────────
+   3. NEUMORPHISM
+   ────────────────────────────────────────────── */
+
+.ag-neumorph {
+  background: var(--ag-cream);
+  box-shadow:
+    6px 6px 12px rgba(139, 99, 71, 0.1),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+.ag-neumorph-inset {
+  background: var(--ag-cream);
+  box-shadow:
+    inset 3px 3px 6px rgba(139, 99, 71, 0.1),
+    inset -3px -3px 6px rgba(255, 255, 255, 0.8);
+  border: none;
+}
+
+/* ──────────────────────────────────────────────
+   4. 3D TILT CARD
+   ────────────────────────────────────────────── */
+
+.ag-tilt-card {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  transition: transform 0.1s ease;
+}
+
+.ag-tilt-card-inner {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.ag-tilt-content {
+  transform: translateZ(30px);
+}
+
+.ag-tilt-shadow {
+  transform: translateZ(-20px);
+  opacity: 0.3;
+  filter: blur(10px);
+}
+
+/* ──────────────────────────────────────────────
+   5. MAGNETIC BUTTONS
+   ────────────────────────────────────────────── */
+
+.ag-magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s var(--ag-transition-bounce);
+}
+
+.ag-magnetic-inner {
+  transition: transform 0.15s ease;
+}
+
+/* ──────────────────────────────────────────────
+   6. FLOATING ANIMATIONS
+   ────────────────────────────────────────────── */
+
+.ag-float {
+  animation: ag-float 3s ease-in-out infinite;
+}
+@keyframes ag-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.ag-float-slow {
+  animation: ag-float 5s ease-in-out infinite;
+}
+
+.ag-float-fast {
+  animation: ag-float 2s ease-in-out infinite;
+}
+
+.ag-morph {
+  animation: ag-morph 4s ease-in-out infinite;
+}
+@keyframes ag-morph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+/* ──────────────────────────────────────────────
+   7. ORB / GLOW EFFECTS
+   ────────────────────────────────────────────── */
+
+.ag-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.ag-orb-gold {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(201, 151, 58, 0.3), transparent 70%);
+  animation: ag-orbFloat 8s ease-in-out infinite;
+}
+
+.ag-orb-cream {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(245, 240, 232, 0.2), transparent 70%);
+  animation: ag-orbFloat 10s ease-in-out infinite reverse;
+}
+
+@keyframes ag-orbFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* ──────────────────────────────────────────────
+   8. PARTICLES BACKGROUND
+   ────────────────────────────────────────────── */
+
+.ag-particles-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────
+   9. SCROLL REVEAL ANIMATIONS
+   ────────────────────────────────────────────── */
+
+.ag-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s var(--ag-transition-smooth);
+}
+.ag-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ag-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s ease, transform 0.8s var(--ag-transition-smooth);
+}
+.ag-reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ag-reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease, transform 0.8s var(--ag-transition-smooth);
+}
+.ag-reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.ag-reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.8s ease, transform 0.8s var(--ag-transition-smooth);
+}
+.ag-reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay utilities */
+.ag-delay-1 { transition-delay: 0.1s; }
+.ag-delay-2 { transition-delay: 0.2s; }
+.ag-delay-3 { transition-delay: 0.3s; }
+.ag-delay-4 { transition-delay: 0.4s; }
+.ag-delay-5 { transition-delay: 0.5s; }
+.ag-delay-6 { transition-delay: 0.6s; }
+
+/* ──────────────────────────────────────────────
+   10. PARALLAX
+   ────────────────────────────────────────────── */
+
+.ag-parallax-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.ag-parallax-layer {
+  position: absolute;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────
+   11. BENTO GRID
+   ────────────────────────────────────────────── */
+
+.ag-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.ag-bento-item {
+  position: relative;
+  overflow: hidden;
+  background: var(--ag-cream);
+  border: 1px solid rgba(139, 99, 71, 0.1);
+  transition: all 0.3s ease;
+}
+.ag-bento-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(26, 17, 8, 0.1);
+}
+
+.ag-bento-wide {
+  grid-column: span 2;
+}
+
+.ag-bento-tall {
+  grid-row: span 2;
+}
+
+.ag-bento-full {
+  grid-column: 1 / -1;
+}
+
+/* ──────────────────────────────────────────────
+   12. MASONRY GRID
+   ────────────────────────────────────────────── */
+
+.ag-masonry {
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.ag-masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* ──────────────────────────────────────────────
+   13. CURSOR FOLLOWER
+   ────────────────────────────────────────────── */
+
+.ag-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transition: opacity 0.3s ease;
+}
+
+.ag-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #C9973A;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background 0.2s;
+}
+
+.ag-cursor-ring {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid rgba(201, 151, 58, 0.4);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s, transform 0.15s ease;
+}
+
+.ag-cursor-ring.hover {
+  width: 60px;
+  height: 60px;
+  border-color: #C9973A;
+  background: rgba(201, 151, 58, 0.05);
+}
+
+/* ──────────────────────────────────────────────
+   14. BUTTON EFFECTS
+   ────────────────────────────────────────────── */
+
+.ag-btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+.ag-btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: rotate(25deg);
+  animation: ag-shine 4s ease-in-out infinite;
+}
+@keyframes ag-shine {
+  0% { left: -60%; }
+  20% { left: 120%; }
+  100% { left: 120%; }
+}
+
+.ag-btn-border-glow {
+  position: relative;
+}
+.ag-btn-border-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: var(--ag-gradient-gold);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.ag-btn-border-glow:hover::before {
+  opacity: 1;
+}
+
+/* ──────────────────────────────────────────────
+   15. DIVIDERS / SEPARATORS
+   ────────────────────────────────────────────── */
+
+.ag-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--ag-brown);
+  opacity: 0.3;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+.ag-divider::before,
+.ag-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--ag-brown), transparent);
+}
+
+/* ──────────────────────────────────────────────
+   16. COUNTER / STATS
+   ────────────────────────────────────────────── */
+
+.ag-counter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--ag-gold);
+}
+
+/* ──────────────────────────────────────────────
+   17. IMAGE EFFECTS
+   ────────────────────────────────────────────── */
+
+.ag-img-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.2s var(--ag-transition-smooth);
+}
+.ag-img-reveal.visible {
+  clip-path: inset(0 0 0 0);
+}
+
+.ag-img-mask {
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+/* ──────────────────────────────────────────────
+   18. LOADING / SKELETON
+   ────────────────────────────────────────────── */
+
+.ag-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--ag-sand) 25%,
+    var(--ag-cream) 50%,
+    var(--ag-sand) 75%
+  );
+  background-size: 200% 100%;
+  animation: ag-shimmer 1.5s ease-in-out infinite;
+}
+@keyframes ag-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ──────────────────────────────────────────────
+   19. NOISE TEXTURE OVERLAY
+   ────────────────────────────────────────────── */
+
+.ag-noise {
+  position: relative;
+}
+.ag-noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+/* ──────────────────────────────────────────────
+   20. HERO / SPLIT SCREEN
+   ────────────────────────────────────────────── */
+
+.ag-hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ──────────────────────────────────────────────
+   21. COUNTER-ROTATING ELEMENTS
+   ────────────────────────────────────────────── */
+
+.ag-counter-rotate {
+  animation: ag-counterRotate 20s linear infinite;
+}
+@keyframes ag-counterRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ──────────────────────────────────────────────
+   22. GRADIENT BORDERS
+   ────────────────────────────────────────────── */
+
+.ag-border-gradient {
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+.ag-border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--ag-gradient-gold);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ──────────────────────────────────────────────
+   23. SPOTLIGHT / MOUSE TRACKING
+   ────────────────────────────────────────────── */
+
+.ag-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.ag-spotlight::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(
+    circle at var(--ag-mouse-x, 50%) var(--ag-mouse-y, 50%),
+    rgba(201, 151, 58, 0.08) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ──────────────────────────────────────────────
+   24. RESPONSIVE GRID EXTENSIONS
+   ────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .ag-bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .ag-masonry { columns: 2; }
+}
+
+@media (max-width: 768px) {
+  .ag-bento-grid { grid-template-columns: 1fr; }
+  .ag-bento-wide { grid-column: span 1; }
+  .ag-bento-tall { grid-row: span 1; }
+  .ag-masonry { columns: 1; }
+  .ag-hero-split { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .ag-counter { font-size: 2.5rem; }
+}
+
+/* ──────────────────────────────────────────────
+   25. UTILITY CLASSES
+   ────────────────────────────────────────────── */
+
+.ag-hidden { display: none !important; }
+.ag-no-select { user-select: none; -webkit-user-select: none; }
+.ag-pointer-none { pointer-events: none; }
+.ag-pointer-auto { pointer-events: auto; }
+.ag-will-change { will-change: transform, opacity; }
+.ag-backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
