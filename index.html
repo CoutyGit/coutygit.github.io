@@ -96,9 +96,9 @@ nav.scrolled { padding: 0.8rem 3rem; box-shadow: 0 2px 20px var(--shadow); }
 .section-title em { font-style: italic; color: var(--brown); }
 .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
 .product-card { background: var(--white); overflow: hidden; }
-.card-img { aspect-ratio: 3/3.5; overflow: hidden; background: var(--sand); position: relative; }
-.card-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s; display: block; }
-.product-card:hover .card-img img { transform: scale(1.05); }
+.card-img { aspect-ratio: 3/3.5; overflow: hidden; background: var(--sand); position: relative; display: flex; align-items: center; justify-content: center; }
+.card-img img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.5s; display: block; background: var(--sand); padding: 0.8rem; }
+.product-card:hover .card-img img { transform: scale(1.03); }
 .card-badge { position: absolute; top: 12px; left: 12px; background: var(--gold); color: var(--near-black); font-size: 0.6rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.3rem 0.7rem; z-index: 1; }
 .card-body { padding: 1.2rem; }
 .card-category { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--brown); opacity: 0.7; margin-bottom: 0.3rem; }
@@ -597,6 +597,244 @@ Fabricamos calçados desde 2004.
           </div>
           <div class="card-desc">
             <p>Cuturno de segurança com biqueira de proteção em couro legítimo. Atende às normas de segurança do trabalho, com solado isolante e cabedal resistente para ambientes industriais e de construção.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="texanafeminina.png" alt="Texana Feminina em Couro">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Feminino</div>
+          <div class="card-name">Texana Feminina em Couro</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo feminino com couro fino, acabamento delicado e conforto diário. Ideal para quem busca praticidade, beleza e resistência em um único calçado.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Coturno Adventure.png" alt="Coturno Adventure">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Adventure</div>
+          <div class="card-name">Coturno Adventure</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo aventureiro com estrutura firme, solado resistente e visual marcante. Perfeito para quem valoriza versatilidade e proteção no dia a dia.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Coturno Adventure Nobuck.png" alt="Coturno Adventure Nobuck">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Adventure</div>
+          <div class="card-name">Coturno Adventure Nobuck</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Versão com visual mais elegante, mantendo resistência, conforto e acabamento premium para uso urbano e outdoor.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="2 Pic Unissola Oliva.png" alt="2 Pic Unissola Oliva">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">2 Pic Unissola Oliva</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo de campo com proposta prática e resistente, ideal para rotina rural e uso diário com conforto e durabilidade.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="2 Pic PVC.png" alt="2 Pic PVC">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">2 Pic PVC</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo com estrutura reforçada e acabamento funcional, pensado para oferecer proteção e resistência em atividades de campo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="2 Pic CE Unissola.png" alt="2 Pic CE Unissola">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">2 Pic C/E Unissola</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo versátil em couro e estrutura resistente, com visual clássico e funcionalidade para o uso diário no campo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="CEmenda Pneu Placa.png" alt="C/Emenda Pneu Placa">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">C/Emenda Pneu Placa</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo robusto com solado reforçado e estrutura para uso intenso, ideal para quem precisa de resistência e proteção.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="CEmenda Raspa Unissola.png" alt="C/Emenda Raspa Unissola">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">C/Emenda Raspa Unissola</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo com acabamento rústico e resistência superior, pensado para trabalho e uso constante em ambientes desafiadores.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Segurança BPVC Vaqueta.png" alt="Segurança BPVC Vaqueta">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Segurança</div>
+          <div class="card-name">Segurança BPVC Vaqueta</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo de segurança com proteção reforçada e estrutura confortável para ambientes de trabalho que exigem confiabilidade.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Segurança BPVC Raspa.png" alt="Segurança BPVC Raspa">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Segurança</div>
+          <div class="card-name">Segurança BPVC Raspa</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Versão de segurança com acabamento diferenciado e resistência reforçada, ideal para utilização contínua e profissional.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Segurança Taloneira.png" alt="Segurança Taloneira">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Segurança</div>
+          <div class="card-name">Segurança Taloneira</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo pensado para proteção e conforto em ambientes de serviço, com estrutura firme e acabamento que une segurança e estilo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Zíper Látex Natural.png" alt="Zíper Látex Natural">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">Zíper Látex Natural</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo com solado flexível e acabamento artesanal, trazendo resistência, conforto e um visual diferenciado para o uso cotidiano.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="Infantil Zíper PVC.png" alt="Infantil Zíper PVC">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Infantil</div>
+          <div class="card-name">Infantil Zíper PVC</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo infantil confortável e prático, com fechamento em zíper e acabamento seguro para o dia a dia das crianças.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card reveal ag-glass-light">
+        <div class="card-img">
+          <img src="EF Látex Preto.png" alt="E/F Látex Preto">
+        </div>
+        <div class="card-body">
+          <div class="card-category">Campo</div>
+          <div class="card-name">E/F Látex Preto</div>
+          <div class="card-toggle" onclick="toggleDesc(this)">
+            <span class="card-toggle-label">Descrição</span>
+            <span class="card-toggle-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+          </div>
+          <div class="card-desc">
+            <p>Modelo em látex preto com estrutura resistente e aparência moderna, ideal para uso versátil e robusto.</p>
           </div>
         </div>
       </div>
