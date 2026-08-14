@@ -330,7 +330,7 @@
   class OrcamentoManager {
     constructor() {
       this.items = this.loadFromStorage();
-      this.whatsappNumber = '5535984011960'; // +55 35 98401-1960
+      this.whatsappNumber = '5535910197239'; // +55 35 98401-1960
       injectCSS();
       this.init();
     }
