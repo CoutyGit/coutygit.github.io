@@ -423,6 +423,7 @@
     .card { break-inside: avoid; }
   }
 </style>
+<link rel="stylesheet" href="lightbox.css">
 </head>
 <body>
 
@@ -710,6 +711,12 @@ document.getElementById('search').addEventListener('input', e => {
 });
 
 renderGrid();
+</script>
+<script src="lightbox.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    CoutyLightbox.initGallery('#grid', '.card-img-wrap');
+  });
 </script>
 </body>
 </html>

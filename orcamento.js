@@ -33,11 +33,11 @@
       box-shadow: 0 4px 24px rgba(26,17,8,0.25);
       transition: background 0.25s, transform 0.2s;
     }
-    .btn-orcamento-flutuante:hover { background: #b8872e; transform: translateY(-2px); }
+    .btn-orcamento-flutuante:hover { background: #90EE90; transform: translateY(-2px); }
     .orcamento-icon { font-size: 1.1rem; }
     .orcamento-count {
-      background: #1A1108;
-      color: #C9973A;
+      background: #90EE90;
+      color: #90EE90;
       font-size: 0.65rem;
       font-weight: 800;
       min-width: 20px;
@@ -330,7 +330,7 @@
   class OrcamentoManager {
     constructor() {
       this.items = this.loadFromStorage();
-      this.whatsappNumber = '5535910197239'; // +55 35 98401-1960
+      this.whatsappNumber = '5535984011960'; // +55 35 98401-1960
       injectCSS();
       this.init();
     }
